@@ -65,6 +65,11 @@ vmList.each {
 	}
 }
 
+if (vmID == 0) {
+	System.err.println "Error: VM Name \"" + VMName + "\" not found"
+	System.exit(1)
+}
+
 println "VM ID: " + vmID
 
 response = IDTESRESTClient.post(path: "configurations/" + configID + "/vms/" + vmID + "/user_data.json" ,

@@ -65,7 +65,7 @@ vmList.each {
 
 if (vmID == 0) {
 	System.err.println "Error: VM Name \"" + VMName + "\" not found"
-	exit (1)
+	System.exit(1)
 }
 println "VM ID: " + vmID
 

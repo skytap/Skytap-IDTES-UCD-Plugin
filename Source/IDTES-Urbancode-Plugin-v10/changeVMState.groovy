@@ -155,7 +155,7 @@ while ((loopCounter <= 30) && (locked == 1)) {
 	try {
 		response = IDTESRESTClient.put(path: urlPath, query:[runstate:newState] )
 	} catch(HttpResponseException ex) {
-		if ((ex.statusCode == 423) || (ex.statusCode == 500)) {
+		if ((ex.statusCode == 423) || (ex.statusCode == 500) || (ex.statusCode == 422)) {
 			println "Environment is locked or busy. Retrying..."
 			locked = 1
 			sleep(10000)
