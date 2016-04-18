@@ -46,7 +46,7 @@ println "	UCD Component Name: " + componentName
 println "Done"
 
 def IDTESRESTClient = new RESTClient(serverURL)
-IDTESRESTClient.defaultRequestHeaders.'Authorization: Basic' = encodedAuthString
+IDTESRESTClient.defaultRequestHeaders.'Authorization' = 'Basic ' + encodedAuthString
 IDTESRESTClient.defaultRequestHeaders.'Accept' = "application/json"
 IDTESRESTClient.defaultRequestHeaders.'Content-Type' = "application/json"
 
