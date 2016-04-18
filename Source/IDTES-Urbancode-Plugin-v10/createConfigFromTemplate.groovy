@@ -39,19 +39,14 @@ println "	User Name: " + username
 println "	Password: " + password
 println "	Proxy Host: " + proxyHost
 println "	Proxy Port: " + proxyPort
-println "	unencoded Auth String: " + unencodedAuthString
-println "	encoded Auth String: " + encodedAuthString
 println "Done"
 
 def IDTESRESTClient = new RESTClient('https://cloud.skytap.com/')
 IDTESRESTClient.defaultRequestHeaders.'Authorization' = 'Basic ' + encodedAuthString
 IDTESRESTClient.defaultRequestHeaders.'Accept' = "application/json"
 IDTESRESTClient.defaultRequestHeaders.'Content-Type' = "application/json"
-println "DEBUG: Default Request Headers: " + IDTESRESTClient.defaultRequestHeaders
 if (proxyHost) {
-println "DEBUG: proxyHost"
 	if (proxyPort) {
-		println "DEBUG: proxyPort"
 		IDTESRESTClient.setProxy(proxyHost, proxyPort.toInteger(), "http")
 	} else {
 		println "Error: Proxy Host was specified but no Proxy Port was specified"
